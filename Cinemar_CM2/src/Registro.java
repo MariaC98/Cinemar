@@ -2,7 +2,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Registro {
-	private int id_user;
+	
 	private String nombre;
 	private String apellido;
 	private String email;
@@ -32,15 +32,15 @@ public class Registro {
 	
 	public void validaDatos() throws SQLException {
 	
-	if(this.nombre!=""&&this.apellido!=""&&this.email!=""&&this.password!="") { //podriamos buscar si el email esta en la bdd
+	if(this.nombre!=""&&this.apellido!=""&&
+	   this.email!=""&&this.password!="") { //podriamos buscar si el email esta en la bdd
 		
-		String sql = "insert into usuario values(7,"+"'"+this.nombre+"',"+
+		String sql = "insert into usuario values(null,"+"'"+this.nombre+"',"+
 		"'"+this.apellido+"',"+"'"+this.email+"',"+"'"+this.password+"',"+"1,false);";
 		
 		Conexion conexion = new Conexion();
-		
 		conexion.realizaConsulta(sql);
-		
+		System.out.println("Usuario cargado");
 	}
 	
 	else {
